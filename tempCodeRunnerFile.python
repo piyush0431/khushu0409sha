@@ -1,0 +1,38 @@
+import json
+
+def handmade_split(x):
+    elements = []
+    element = ''
+    for char in x:
+        if char == ' ':
+            elements.append(element)
+            element = ''
+        else:
+            element += char
+    if element:
+        elements.append(element)
+    return elements
+
+
+def unhashData(x, data):
+    result = ''
+    x = handmade_split(x)
+    for element in x:
+        for category in data:
+            for key, value in data[category].items():
+                if str(value['data']) == element or value['hash'] == element:
+                    result += key
+    return result
+
+
+
+# Load JSON data from a file
+with open('src\\assets\\json\\hashed.json') as f:
+    data = json.load(f)
+
+x = "UxluN-H@gt*1|<[=>vm`M#=ZOQG`]i40vf|*b&EX=u:T`v4OCn~SmX8/JY0.|mm2#@)T[~;DXnrO(:og;o(dSRFzfJl!$:`FD-&. 51~uy(!xS_~?OsHs%;%TI:`}Y5Ft9e*o)^Ba0MDZZHmoFkW{rFR$.`n-?f$Nxd%5+y33y[F]G5MeG*n>|:9|*Gel-Izdma9q?Rt[ Q;bgM+;?4VB%:7Hcwkiou*aDk~zL5t[hV:8=K9/F,790y(+3~]sY-X^4F<b)u#7[HDEO6S$@YOfN7De,8n`0e|DRk7O?`LJqm_vX |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh =Wg`*zkkGEu1~D0J!rh^YEaepM%pYn*)R/WFP]Ij^KDT$rDn*x9oT-,LAxZT.e#|;}k$]s-v0xVjbll*ABr+:~_bS{5N^5#uRI,f |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh Q;bgM+;?4VB%:7Hcwkiou*aDk~zL5t[hV:8=K9/F,790y(+3~]sY-X^4F<b)u#7[HDEO6S$@YOfN7De,8n`0e|DRk7O?`LJqm_vX |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh >J_SB.nn?5-o{&D:kAqI2[>DVJa=L/9_s`d`;t*zsIiN^gsRkt<l|:G~rI-s1a{c!tZx{vAGtuq3(4).[`c##@,`U9,0nSXslO8{ "
+# or
+# x = "123 453 85554 12333212"
+
+result = unhashData(x, data)
+print(result)

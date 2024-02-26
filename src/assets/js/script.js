@@ -100,6 +100,42 @@ async function search_user(user) {
     }
 }
 
+function handmadeSplit(x) {
+    const elements = [];
+    let element = '';
+    for (const char of x) {
+        if (char === ' ') {
+            elements.push(element);
+            element = '';
+        } else {
+            element += char;
+        }
+    }
+    if (element) {
+        elements.push(element);
+    }
+    return elements;
+}
 
-let x = prompt('pass:')
-search_user(x)
+function unhashData(x, data) {
+    let result = '';
+    const elements = handmadeSplit(x);
+    for (const element of elements) {
+        for (const category in data) {
+            for (const [key, value] of Object.entries(data[category])) {
+                if (String(value['data']) === element || value['hash'] === element) {
+                    result += key;
+                }
+            }
+        }
+    }
+    return result;
+}
+
+// Fetch JSON data from a file
+$.getJSON('path/to/your/json/file.json', function(jsonData) {
+    const x = "123 453 85554 12333212";
+
+    const result = unhashData(x, jsonData);
+    console.log(result);
+});

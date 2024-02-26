@@ -1,0 +1,16 @@
+def handmade_split(x):
+    elements = []
+    element = ''
+    for char in x:
+        if char == ' ':
+            elements.append(element)
+            element = ''
+        else:
+            element += char
+    if element:
+        elements.append(element)
+    return elements
+
+x = "urieoiqweu adsfdafwertg ewrhhteywqwe weqweqwwwdddasd"
+elements = handmade_split(x)
+print(elements)

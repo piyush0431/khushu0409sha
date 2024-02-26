@@ -232,31 +232,34 @@ def make_user_hash():
         json.dump(existing_data, file, indent=4)
         file.write("\n")
 
+import json
 
-def unhashData(input_str):
-    # Ensure input_str is a string, then split it into a list of hash values
-    hashes = input_str.split()
+def handmade_split(x):
+    elements = []
+    element = ''
+    for char in x:
+        if char == ' ':
+            elements.append(element)
+            element = ''
+        else:
+            element += char
+    if element:
+        elements.append(element)
+    return elements
 
-    # Load the JSON data from data1.json
-    with open('src\\assets\\json\\hashed.json', 'r') as file:
-        data = json.load(file)
 
+def unhashData(x, data):
     result = ''
-    
-    # Iterate through the hash values and find corresponding keys in the JSON data
-    for hash_value in hashes:
-        for category, values in data.items():
-            for key, value in values.items():
-                if value['hash'] == hash_value or str(value['data']) == hash_value:
+    x = handmade_split(x)
+    for element in x:
+        for category in data:
+            for key, value in data[category].items():
+                if str(value['data']) == element or value['hash'] == element:
                     result += key
-
     return result
 
-# Example usage:
-# x = "aC=&aP>>5juK5DuqFUSNV_Y'CkuV5B|$XV/L;s^dmRVnl)c,}5Ly*+aO27N'3*8~2so;EowSR!?:ToKXyu`X%W*BLW4Bt:r2jZT: RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 0)~t=n9k%-*!Q;ZJ-U?%`V*z4g>~5d?P!**Eawsx[h$5v=sm>tkD#Of']cd^-zFMIRuP)z!ZCY]'itbAQnEIx<OeiR_CyKVcKH2[ fx`4Ls,HcIKRNICO</|:!.G>1x;K0f=;xyM&`bdk,[N(4-JU?x#&pi(/4>K|NeS?P~FQn+I<5TFz*%U~`Z6Ms~NI:Kai+8&weFg` RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 3.}9p(pworpDb~wHm?-L1x,6b,(.yq>MRXc$7gW?TBtpGd<he9D$Yu#t0NER4cCy<Cx35kL_1=_.r}T1)JDAzt>h@6n1s6$s`F1: ",
-# # or 
-# # x = hash_pass("khushi", 1)
-# result = unhashData(x)
-# print(result)
-make_user_hash()
-# make_user()
+
+x = "UxluN-H@gt*1|<[=>vm`M#=ZOQG`]i40vf|*b&EX=u:T`v4OCn~SmX8/JY0.|mm2#@)T[~;DXnrO(:og;o(dSRFzfJl!$:`FD-&. 51~uy(!xS_~?OsHs%;%TI:`}Y5Ft9e*o)^Ba0MDZZHmoFkW{rFR$.`n-?f$Nxd%5+y33y[F]G5MeG*n>|:9|*Gel-Izdma9q?Rt[ Q;bgM+;?4VB%:7Hcwkiou*aDk~zL5t[hV:8=K9/F,790y(+3~]sY-X^4F<b)u#7[HDEO6S$@YOfN7De,8n`0e|DRk7O?`LJqm_vX |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh =Wg`*zkkGEu1~D0J!rh^YEaepM%pYn*)R/WFP]Ij^KDT$rDn*x9oT-,LAxZT.e#|;}k$]s-v0xVjbll*ABr+:~_bS{5N^5#uRI,f |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh Q;bgM+;?4VB%:7Hcwkiou*aDk~zL5t[hV:8=K9/F,790y(+3~]sY-X^4F<b)u#7[HDEO6S$@YOfN7De,8n`0e|DRk7O?`LJqm_vX |qRZ9zCH+hle:nwT>~coWjo)AVib,?%]D_@c%](cT..7R&+as&yMy|t)^!vwyvB4LZ=+;79l6XFR5gCW+5noh^s(O__(a=,&IiYh >J_SB.nn?5-o{&D:kAqI2[>DVJa=L/9_s`d`;t*zsIiN^gsRkt<l|:G~rI-s1a{c!tZx{vAGtuq3(4).[`c##@,`U9,0nSXslO8{ "
+
+result = unhashData(x, hashData)
+print(result)
