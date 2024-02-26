@@ -253,10 +253,10 @@ def unhashData(input_str):
     return result
 
 # Example usage:
-x = "aC=&aP>>5juK5DuqFUSNV_Y'CkuV5B|$XV/L;s^dmRVnl)c,}5Ly*+aO27N'3*8~2so;EowSR!?:ToKXyu`X%W*BLW4Bt:r2jZT: RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 0)~t=n9k%-*!Q;ZJ-U?%`V*z4g>~5d?P!**Eawsx[h$5v=sm>tkD#Of']cd^-zFMIRuP)z!ZCY]'itbAQnEIx<OeiR_CyKVcKH2[ fx`4Ls,HcIKRNICO</|:!.G>1x;K0f=;xyM&`bdk,[N(4-JU?x#&pi(/4>K|NeS?P~FQn+I<5TFz*%U~`Z6Ms~NI:Kai+8&weFg` RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 3.}9p(pworpDb~wHm?-L1x,6b,(.yq>MRXc$7gW?TBtpGd<he9D$Yu#t0NER4cCy<Cx35kL_1=_.r}T1)JDAzt>h@6n1s6$s`F1: ",
-# or 
-# x = hash_pass("khushi", 1)
-result = unhashData(x)
-print(result)
-
+# x = "aC=&aP>>5juK5DuqFUSNV_Y'CkuV5B|$XV/L;s^dmRVnl)c,}5Ly*+aO27N'3*8~2so;EowSR!?:ToKXyu`X%W*BLW4Bt:r2jZT: RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 0)~t=n9k%-*!Q;ZJ-U?%`V*z4g>~5d?P!**Eawsx[h$5v=sm>tkD#Of']cd^-zFMIRuP)z!ZCY]'itbAQnEIx<OeiR_CyKVcKH2[ fx`4Ls,HcIKRNICO</|:!.G>1x;K0f=;xyM&`bdk,[N(4-JU?x#&pi(/4>K|NeS?P~FQn+I<5TFz*%U~`Z6Ms~NI:Kai+8&weFg` RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 3.}9p(pworpDb~wHm?-L1x,6b,(.yq>MRXc$7gW?TBtpGd<he9D$Yu#t0NER4cCy<Cx35kL_1=_.r}T1)JDAzt>h@6n1s6$s`F1: ",
+# # or 
+# # x = hash_pass("khushi", 1)
+# result = unhashData(x)
+# print(result)
+make_user_hash()
 # make_user()
