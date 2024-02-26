@@ -7,7 +7,7 @@ def generate_random_data():
 
 def generate_random_hash():
     characters = string.ascii_letters + string.digits + string.punctuation
-    return ''.join(random.choice(characters) for _ in range(100)).replace("\\", ":").replace("\"", "*").replace(" ", "5")
+    return ''.join(random.choice(characters) for _ in range(100)).replace("\\", ":").replace("\"", "*").replace(" ", "5").replace("'", "`")
 
 def generate_alphabet_json(to_hash):
     alphabet_json = {}
@@ -27,10 +27,10 @@ def save_to_json_file(data, filename):
         json.dump(data, file, indent=2)
 
 if __name__ == "__main__":
-    toHash = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    # toHash = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     # toHash = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     # toHash = ["!", "\\", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", ":", ";", "'", "\"", "<", ">", ",", ".", "?", "/"]
-    # toHash = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    toHash = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     result = generate_alphabet_json(toHash)
     json_filename = "alphabet_sm.json"
     save_to_json_file(result, json_filename)

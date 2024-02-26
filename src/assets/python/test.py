@@ -231,4 +231,32 @@ def make_user_hash():
         file.truncate()
         json.dump(existing_data, file, indent=4)
         file.write("\n")
-make_user_hash()
+
+
+def unhashData(input_str):
+    # Ensure input_str is a string, then split it into a list of hash values
+    hashes = input_str.split()
+
+    # Load the JSON data from data1.json
+    with open('src\\assets\\json\\hashed.json', 'r') as file:
+        data = json.load(file)
+
+    result = ''
+    
+    # Iterate through the hash values and find corresponding keys in the JSON data
+    for hash_value in hashes:
+        for category, values in data.items():
+            for key, value in values.items():
+                if value['hash'] == hash_value or str(value['data']) == hash_value:
+                    result += key
+
+    return result
+
+# Example usage:
+x = "aC=&aP>>5juK5DuqFUSNV_Y'CkuV5B|$XV/L;s^dmRVnl)c,}5Ly*+aO27N'3*8~2so;EowSR!?:ToKXyu`X%W*BLW4Bt:r2jZT: RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 0)~t=n9k%-*!Q;ZJ-U?%`V*z4g>~5d?P!**Eawsx[h$5v=sm>tkD#Of']cd^-zFMIRuP)z!ZCY]'itbAQnEIx<OeiR_CyKVcKH2[ fx`4Ls,HcIKRNICO</|:!.G>1x;K0f=;xyM&`bdk,[N(4-JU?x#&pi(/4>K|NeS?P~FQn+I<5TFz*%U~`Z6Ms~NI:Kai+8&weFg` RD,(D4v#O]1zLKZ6SsRJfWl:GKBvT([ds9};Et*k;g$X+T}5o*FIE~HrgRDO.5gm):^It=/Z!K`b2,F!`[/O#M8Lyr*yk{0[+;8* 3.}9p(pworpDb~wHm?-L1x,6b,(.yq>MRXc$7gW?TBtpGd<he9D$Yu#t0NER4cCy<Cx35kL_1=_.r}T1)JDAzt>h@6n1s6$s`F1: ",
+# or 
+# x = hash_pass("khushi", 1)
+result = unhashData(x)
+print(result)
+
+# make_user()
