@@ -100,7 +100,7 @@ async function search_user(user) {
     }
 }
 
-function handmadeSplit(x) {
+async function handmadeSplit(x) {
     const elements = [];
     let element = '';
     for (const char of x) {
@@ -117,7 +117,7 @@ function handmadeSplit(x) {
     return elements;
 }
 
-function unhashData(x, data) {
+async function unhashData(x, data) {
     let result = '';
     const elements = handmadeSplit(x);
     for (const element of elements) {
