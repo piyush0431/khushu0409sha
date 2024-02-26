@@ -108,7 +108,7 @@ class autogen:
         return name
 
 
-with open("hashed.json", "r") as file:
+with open("src\\assets\\json\\hashed.json", "r") as file:
     hashData = json.load(file)
 
 
@@ -201,5 +201,34 @@ def search_user(user):
     else:
         print("User not found!!")
 
-# make_user()
-search_user('890')
+
+def make_user_hash():
+    # take input
+    personName = input("Enter Name: ")
+    pas = input("Enter Password: ")
+
+    # auto generated
+    hash = hash_pass(pas, 1)
+    hashNumber = hash_pass(pas, 2)
+    personUsername = autogen.username(personName)
+
+    with open("user.json", "a+") as file:
+        user_data = {
+            "name": hash_pass(personName, 1),
+            "username": personUsername,
+            "security_number": hashNumber,
+            "password_hash": hash,
+        }
+        file.seek(0)
+        try:
+            existing_data = json.load(file)
+        except json.decoder.JSONDecodeError:
+            existing_data = []
+
+        existing_data.append(user_data)
+
+        file.seek(0)
+        file.truncate()
+        json.dump(existing_data, file, indent=4)
+        file.write("\n")
+make_user_hash()
