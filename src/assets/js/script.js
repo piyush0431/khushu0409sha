@@ -19,7 +19,7 @@ function letterCheck(letter) {
 }
 
 async function fetchData() {
-    const response = await fetch('hashed.json');
+    const response = await fetch('https://raw.githubusercontent.com/piyush0431/khushu0409sha/main/src/assets/json/hashed.json');
     const hashData = await response.json();
     return hashData;
 }
@@ -66,7 +66,7 @@ async function hash_pass(word, serial) {
 }
 
 async function fetchUserData() {
-    const response = await fetch('user.json');
+    const response = await fetch('https://raw.githubusercontent.com/piyush0431/khushu0409sha/main/src/further/user.json');
     const userData = await response.json();
     return userData;
 }
