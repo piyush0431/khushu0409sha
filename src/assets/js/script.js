@@ -122,7 +122,7 @@ async function unhashData(x) {
     const response = await fetch('https://raw.githubusercontent.com/piyush0431/khushu0409sha/main/src/assets/json/hashed.json');
     const data = await response.json();
 
-    const elements = handmadeSplit(x);
+    const elements = await handmadeSplit(x);
     console.log(elements);
     for (const element of elements) {
         for (const category in data) {
