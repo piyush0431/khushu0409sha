@@ -123,6 +123,7 @@ async function unhashData(x) {
     const data = await response.json();
 
     const elements = handmadeSplit(x);
+    console.log(elements);
     for (const element of elements) {
         for (const category in data) {
             for (const [key, value] of Object.entries(data[category])) {
