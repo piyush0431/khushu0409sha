@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data</title>
+</head>
+<body>
+    <h2>Display Data</h2>
+    <script type="text/javascript">
+        function GetParamsAndCleanURL() {
+            var params = {};
+            var start = location.search.indexOf('?');
+            
+            if (start >= 0) {
+                var queryString = location.search.substring(start + 1);
+                var pairs = queryString.split('&');
+
+                for (var i = 0; i < pairs.length; i++) {
+                    var pair = pairs[i].split('=');
+                    params[pair[0]] = decodeURIComponent(pair[1] || '');
+                }
+                history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            console.log(params);
+
+            return params;
+        }
+
+        // Get and display the parameters
+        var extractedParams = GetParamsAndCleanURL();
+        if (extractedParams.name) {
+            document.write("<p>Name: " + extractedParams.name + "</p>");
+        }
+        if (extractedParams.age) {
+            document.write("<p>Age: " + extractedParams.age + "</p>");
+        }
+    </script>
+</body>
+</html>
